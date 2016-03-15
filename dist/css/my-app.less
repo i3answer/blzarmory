@@ -1,0 +1,167 @@
+// @import "index.css";
+body{
+    // background: #000;
+}
+
+em{
+	font-style: normal; 
+}
+
+ul, li{
+  padding: 0;
+  list-style: none;
+}
+
+// 清除浮动
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+.hero-content{
+    padding: 15px;
+}
+
+.avator{
+    text-align: center;
+}
+
+.hero-head{
+    background-image: url('../img/hero-heads.jpg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 170px;
+    height: 130px;
+}
+
+.barbarian-0{
+    background-position: 0 0;
+}
+.barbarian-1{
+    background-position: -170px 0;
+}
+.demon-hunter-0{
+    background-position: 0 -130px;
+}
+.demon-hunter-1{
+    background-position: -170px -130px;
+}
+.monk-0{
+    background-position: 0 -260px;
+}
+.monk-1{
+    background-position: -170px -260px;
+}
+.witch-doctor-0{
+    background-position: 0 -390px;
+}
+.witch-doctor-1{
+    background-position: -170px -390px;
+}
+.wizard-0{
+    background-position: 0 -520px;
+}
+.wizard-1{
+    background-position: -170px -520px;
+}
+.crusader-0{
+    background-position: 0 -650px;
+}
+.crusader-1{
+    background-position: -170px -650px;
+}
+
+#server_area_menu{
+	height: 50px;
+	vertical-align: middle;
+	font-size: 20px;
+	width: 80px;
+}
+
+#search_input{
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    vertical-align: middle;
+    width: 140px;
+}
+
+.blz-icon{
+    background-image: url('../img/icon/blizzard-logo.png');
+    background-repeat: no-repeat;
+    background-size: 75px 30px;
+    background-position: 10px 10px;
+    padding-left: 95px;
+}
+
+#search_btn{
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	padding: 0;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+
+//hero page
+.stat-info{
+	padding: 10px 0;
+
+	p{
+
+		span{
+			display: inline-block;
+			width: 50%;
+		}
+	}
+}
+.skill-info{
+    text-align: center;
+    
+    ul{
+        display: inline-block;
+    }
+}
+.skill-icon-con{
+    float: left;
+    margin-right: 5px;
+    position: relative;
+
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+.skill-desc-con{
+    display: none;
+    position: absolute;
+    width: 200px;
+    padding: 10px;
+    bottom: 50px;
+    right: -100px;
+    background-color: #000;
+    border: 1px solid rgb(216, 181, 121);
+    color: rgb(216, 181, 121);
+    z-index: 99;
+
+    p{
+        font-size: 12px;
+        text-align: left;
+    }
+}
+
+.main{
+    img{
+        float: left;
+    }
+    p{
+        color: rgb(216, 181, 121);
+        float: left;
+    }
+}
