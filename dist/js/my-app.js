@@ -102,14 +102,14 @@ function getProfile (tag) {
         data: {
 
         },
-        dataType: 'jsonp',
+        // dataType: 'jsonp',
         success: function(data){
 
             var data = JSON.parse(data),
                 heroArry = data.heroes,
                 heroFile = [];
 
-            console.log(searchHistory);
+            console.log(data);
 
             if (data.battleTag) {
 
@@ -140,7 +140,9 @@ function getProfile (tag) {
             // $ListCont.html(pageContent({'data': data, 'area': searchArea}));
 
         },  
-        error : function() {    
+        error : function(XMLHttpRequest, textStatus, errorThrown) { 
+
+            console.log(textStatus);   
 
         },
         complete:function(){
@@ -242,7 +244,6 @@ function getHero (tag, id, area) {
         success: function(data){
 
             var data = JSON.parse(data);
-
             data.lastUpdated = new Date(parseInt(data["last-updated"]) * 1000).toLocaleString().replace(/\//g, "-");
 
             var heroTpl = ['<div class="hero-content">',
@@ -259,7 +260,7 @@ function getHero (tag, id, area) {
                                     '<p><span>伤害：<em>' + data.stats.damage + '</em></span><span>韧性：<em>' + data.stats.toughness + '</em></span></p>',
                                     '<p><span>攻速：<em>' + data.stats.attackSpeed.toFixed(2) + '</em></span><span>护甲：<em>' + data.stats.armor + '</em></span></p>',
                                     '<p><span>生命：<em>' + data.stats.life + '</em></span><span>治疗：<em>' + data.stats.healing + '</em></span></p>',
-                                    '<p><span>暴击率：<em>' + data.stats.critChance.toFixed(3) * 100 + '%</em></span><span>暴击伤害：<em>' + (data.stats.critDamage * 100).toFixed(0) + '%</em></span></p>',
+                                    '<p><span>暴击率：<em>' + (data.stats.critChance * 100).toFixed(1) + '%</em></span><span>暴击伤害：<em>' + (data.stats.critDamage * 100).toFixed(0) + '%</em></span></p>',
                                     '<p><span>力量：<em>' + data.stats.strength + '</em></span><span>敏捷：<em>' + data.stats.dexterity + '</em></span></p>',
                                     '<p><span>体力：<em>' + data.stats.vitality + '</em></span><span>智力：<em>' + data.stats.intelligence + '</em></span></p>',
                                     '<p><span>物理抗性：<em>' + data.stats.physicalResist + '</em></span><span>火焰抗性：<em>' + data.stats.fireResist + '</em></span></p>',
@@ -318,19 +319,29 @@ function getHero (tag, id, area) {
 //查看技能
 function checkSkill() {
 
-    $page.on('mouseover', '.skill-icon', function(e){
+    $page.on('click', function(e){
 
         var thiz = $$(this);
 
-        thiz.next().show();
+        console.log(thiz.hasClass('skill-icon'));
+
+        if (!thiz.hasClass('skill-icon')){
+
+            $$('.skill-desc-con').hide();
+
+        }
 
     });
 
-    $page.on('mouseout', '.skill-icon', function(e){
+    $page.on('click', '.skill-icon', function(e){
 
         var thiz = $$(this);
 
-        thiz.next().hide();
+        $$('.skill-desc-con').hide();
+
+        thiz.next().show();
+
+        console.log(thiz);
 
     });
 
